@@ -1,11 +1,11 @@
-import { CardContent } from '@/components/ui/card';
-import { Slider } from '@/components/ui/slider';
+import { CardContent } from '@components/ui/card';
+import { Slider } from '@components/ui/slider';
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger
-} from '@/components/ui/tooltip';
+} from '@components/ui/tooltip';
 import { useState } from 'react';
 
 type ContentProps = {

@@ -1,10 +1,11 @@
-import { Button } from '@/components/ui/button';
-import { CardFooter } from '@/components/ui/card';
+import { Button } from '@components/ui/button';
+import { CardFooter } from '@components/ui/card';
+import { StepEvent } from '@core/types/Steps';
 
 type ActionBarProps = {
   hasNext: boolean;
   hasPrevious: boolean;
-  onEvent: (event: string) => void;
+  onEvent: (event: StepEvent) => void;
 };
 
 const ActionBar = (props: ActionBarProps) => {

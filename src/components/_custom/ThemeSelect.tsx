@@ -4,7 +4,7 @@ import {
   SelectGroup,
   SelectItem,
   SelectTrigger
-} from '@/components/ui/select';
+} from '@components/ui/select';
 import { GearIcon, MoonIcon, SunIcon } from '@radix-ui/react-icons';
 import { useState } from 'react';
 

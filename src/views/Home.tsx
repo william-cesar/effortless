@@ -1,5 +1,5 @@
-import Introduction from '@/components/_custom/Introduction';
-import StepCard from '@/components/_custom/StepCard';
+import Introduction from '@components/_custom/Introduction';
+import StepCard from '@components/_custom/StepCard';
 
 const Home = () => {
   return (

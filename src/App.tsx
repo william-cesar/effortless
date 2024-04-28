@@ -1,5 +1,5 @@
-import BaseLayout from '@/layouts/Base';
-import SmallScreenLayout from './layouts/SmallScreen';
+import BaseLayout from '@layouts/Base';
+import SmallScreenLayout from '@layouts/SmallScreen';
 
 const App = () => {
   return (
