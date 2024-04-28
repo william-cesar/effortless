@@ -1,5 +1,6 @@
 import BaseFooter from '@components/_custom/BaseFooter';
 import BaseHeader from '@components/_custom/BaseHeader';
+
 import Home from '@views/Home';
 
 const BaseLayout = () => {

@@ -1,4 +1,5 @@
 import { FactorInfo } from '@/core/types/Factor';
+
 import { CardDescription, CardHeader, CardTitle } from '@components/ui/card';
 
 const FactorDescription = ({ factorInfo }: { factorInfo: FactorInfo }) => {

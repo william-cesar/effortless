@@ -1,5 +1,6 @@
 import Logo from '@/app/assets/logo.png';
-import ThemeSelect from './ThemeSelect';
+
+import ThemeSelect from '@components/_custom/ThemeSelect';
 
 const BaseHeader = () => {
   return (

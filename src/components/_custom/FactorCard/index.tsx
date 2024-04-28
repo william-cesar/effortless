@@ -1,8 +1,10 @@
+import { useState } from 'react';
+
 import { Factors } from '@/core/domain/Factor';
 import { FactorInfo } from '@/core/types/Factor';
-import { Card } from '@components/ui/card';
 import { StepEvent } from '@core/types/Step';
-import { useState } from 'react';
+
+import { Card } from '@components/ui/card';
 import ActionBar from './ActionBar';
 import EstimativeSlider from './EstimativeSlider';
 import FactorDescription from './FactorDescription';
