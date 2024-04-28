@@ -1,6 +1,6 @@
-import { Steps } from '@core/types/Steps';
+import { FactorsList } from '@/core/types/Factor';
 
-export const STEPS_INFO: Steps = {
+export const FACTORS_INFO: FactorsList = {
   1: {
     title: 'Complexity',
     subtitle: 'How big is the issue?',

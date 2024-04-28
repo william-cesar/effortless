@@ -1,6 +1,6 @@
 import { Button } from '@components/ui/button';
 import { CardFooter } from '@components/ui/card';
-import { StepEvent } from '@core/types/Steps';
+import { StepEvent } from '@core/types/Step';
 
 type ActionBarProps = {
   hasNext: boolean;

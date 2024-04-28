@@ -1,4 +1,4 @@
-export type StepInfo = {
+export type FactorInfo = {
   title: string;
   subtitle: string;
   info: string;
@@ -9,8 +9,6 @@ export type StepInfo = {
   currentValue?: number;
 };
 
-export type Steps = {
-  [key: number]: StepInfo;
+export type FactorsList = {
+  [key: number]: FactorInfo;
 };
-
-export type StepEvent = 'next' | 'prev';
