@@ -12,3 +12,5 @@ export type FactorInfo = {
 export type FactorsList = {
   [key: number]: FactorInfo;
 };
+
+export type Factors = 'complexity' | 'uncertainty' | 'effort';
