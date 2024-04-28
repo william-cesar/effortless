@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { CardContent } from '@components/ui/card';
 import { Slider } from '@components/ui/slider';
@@ -13,25 +13,32 @@ type ContentProps = {
   currentValue: number;
   lowerEndLabel: string;
   upperEndLabel: string;
+  onEvent: (event: number) => void;
 };
 
 const EstimativeSlider = (props: ContentProps) => {
   const [sliderValue, setSliderValue] = useState(props.currentValue);
 
   const handleValueChange = (value: number) => {
+    props.onEvent(value);
     setSliderValue(() => value);
   };
+
+  useEffect(() => {
+    setSliderValue(() => props.currentValue);
+  }, [props]);
+
   return (
     <CardContent className='flex flex-col gap-4 mt-8'>
       <TooltipProvider>
         <Tooltip open>
           <TooltipTrigger>
             <Slider
-              defaultValue={[props.currentValue]}
+              value={[sliderValue]}
               min={0}
               max={100}
               step={10}
-              onValueCommit={(value) => handleValueChange(value[0])}
+              onValueChange={(value) => handleValueChange(value[0])}
             />
           </TooltipTrigger>
           <TooltipContent>

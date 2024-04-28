@@ -19,6 +19,10 @@ const FactorCard = () => {
     setFactorInfo(() => factors.factorInfo);
   };
 
+  const handleValueChange = (value: number) => {
+    factors.updateFactorInfoValue(value);
+  };
+
   return (
     <Card className='max-w-2xl mx-auto'>
       <FactorDescription factorInfo={factorInfo} />
@@ -26,6 +30,7 @@ const FactorCard = () => {
         currentValue={factorInfo.currentValue!}
         lowerEndLabel={factorInfo.lowerEndLabel!}
         upperEndLabel={factorInfo.upperEndLabel!}
+        onEvent={(evt) => handleValueChange(evt)}
       />
       <ActionBar
         hasNext={factorInfo.hasNext!}
