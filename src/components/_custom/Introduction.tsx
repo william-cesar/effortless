@@ -9,16 +9,9 @@ const Introduction = () => {
 
       <p>To determine the story points we evaluate 3 factors:</p>
       <ul className='list-disc list-inside'>
-        <li>
-          <span className='font-bold'>Complexity</span> - how big is the issue
-        </li>
-        <li>
-          <span className='font-bold'>Uncertainty</span> - lack of context
-          and/or clarity
-        </li>
-        <li>
-          <span className='font-bold'>Effort</span> - how hard it is to solve
-        </li>
+        <li className='font-bold'>Complexity</li>
+        <li className='font-bold'>Uncertainty</li>
+        <li className='font-bold'>Effort</li>
       </ul>
       <p>
         Based on your knowledge of the problem select the approximate value for
