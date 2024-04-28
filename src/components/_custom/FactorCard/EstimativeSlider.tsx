@@ -41,8 +41,8 @@ const EstimativeSlider = (props: ContentProps) => {
       </TooltipProvider>
 
       <div className='flex justify-between items-center text-center text-sm text-muted-foreground'>
-        <span className='break-words max-w-24'>{props.lowerEndLabel}</span>
         <span className='break-words max-w-24'>{props.upperEndLabel}</span>
+        <span className='break-words max-w-24'>{props.lowerEndLabel}</span>
       </div>
     </CardContent>
   );
