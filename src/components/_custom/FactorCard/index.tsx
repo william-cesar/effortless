@@ -1,7 +1,8 @@
-import { useState } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect, useState } from 'react';
 
 import { Factors } from '@/core/domain/Factor';
-import { FactorInfo } from '@/core/types/Factor';
+import { FactorInfo, FactorsResults } from '@/core/types/Factor';
 import { StepEvent } from '@core/types/Step';
 
 import { Card } from '@components/ui/card';
@@ -11,13 +12,35 @@ import FactorDescription from './FactorDescription';
 
 const factors = new Factors();
 
-const FactorCard = () => {
+type PropTypes = {
+  onFactorChange: (evt: FactorsResults) => void;
+};
+
+const FactorCard = ({ onFactorChange }: PropTypes) => {
   const [factorInfo, setFactorInfo] = useState<FactorInfo>(factors.factorInfo);
 
   const handleFactorChange = (event: StepEvent) => {
     factors.handleStepChange(event);
     setFactorInfo(() => factors.factorInfo);
   };
+
+  useEffect(() => {
+    return () => {
+      onFactorChange({
+        factors: { ...factors.factors },
+        showResults: false
+      });
+      factors.resetFactors();
+      setFactorInfo(() => factors.factorInfo);
+    };
+  }, []);
+
+  useEffect(() => {
+    onFactorChange({
+      factors: factors.factors,
+      showResults: !factorInfo.hasNext
+    });
+  }, [factorInfo]);
 
   const handleValueChange = (value: number) => {
     factors.updateFactorInfoValue(value);

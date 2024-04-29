@@ -23,7 +23,7 @@ export class StoryPoints {
 
   constructor({ complexity, uncertainty, effort }: FactorsValues) {
     this.storyPoints = 0;
-    this.message = STORY_POINTS_MESSAGES.doNotProceed;
+    this.message = STORY_POINTS_MESSAGES.average;
     this.factorsValues = {
       complexity,
       uncertainty,
@@ -87,6 +87,10 @@ export class StoryPoints {
 
   private calculateStoryPoints(): void {
     const { complexity, uncertainty, effort } = this.factorsValues;
+    console.log(
+      '🚀 ~ StoryPoints ~ calculateStoryPoints ~  { complexity, uncertainty, effort }:',
+      { complexity, uncertainty, effort }
+    );
 
     if (this.isHigh({ complexity, uncertainty, effort })) {
       this.storyPoints = StoryPointsValues.THIRTEEN;
@@ -102,20 +106,24 @@ export class StoryPoints {
 
     if (sumPoints <= this.POINTS.veryEasy) {
       this.storyPoints = StoryPointsValues.ONE;
+      this.updateMessage('allClear');
       return;
     }
 
     if (sumPoints <= this.POINTS.easy) {
       this.storyPoints = StoryPointsValues.TWO;
+      this.updateMessage('allClear');
       return;
     }
 
     if (sumPoints <= this.POINTS.regular) {
       this.storyPoints = StoryPointsValues.THREE;
+      this.updateMessage('average');
       return;
     }
 
     this.storyPoints = StoryPointsValues.FIVE;
+    this.updateMessage('average');
   }
 
   public getResults(): StoryPointsResult {
