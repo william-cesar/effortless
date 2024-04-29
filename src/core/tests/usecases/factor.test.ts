@@ -1,4 +1,4 @@
-import { Factors } from '@core/domain/Factor';
+import { Factors } from '@/core/usecases/Factor';
 import { describe, expect, it } from 'vitest';
 
 const makeSut = () => {

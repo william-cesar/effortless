@@ -1,5 +1,5 @@
-import { StoryPoints } from '@/core/domain/StoryPoints';
 import { FactorsValues } from '@/core/types/StoryPoints';
+import { StoryPoints } from '@/core/usecases/StoryPoints';
 
 import { Button } from '@/components/ui/button';
 import {

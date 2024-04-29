@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react';
 
-import { Factors } from '@/core/domain/Factor';
 import { FactorInfo, FactorsResults } from '@/core/types/Factor';
+import { Factors } from '@/core/usecases/Factor';
 import { StepEvent } from '@core/types/Step';
 
 import { Card } from '@components/ui/card';
