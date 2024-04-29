@@ -14,3 +14,8 @@ export type FactorsList = {
 };
 
 export type Factors = 'complexity' | 'uncertainty' | 'effort';
+
+export type FactorsResults = {
+  factors: FactorsList;
+  showResults: boolean;
+};

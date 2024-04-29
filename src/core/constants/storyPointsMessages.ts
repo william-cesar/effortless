@@ -37,12 +37,6 @@ export const STORY_POINTS_MESSAGES: StoryPointsMessages = {
       'This task is going to take an exceptional amount of time to solve. It is recommended to split it into more manageable parts.',
     type: 'error'
   },
-  doNotProceed: {
-    title: 'Do not proceed!',
-    description:
-      'This task does not seem ready to be worked on. You and your team should discuss this issue before proceeding.',
-    type: 'error'
-  },
   average: {
     title: 'Balanced as all things should be!',
     description:
