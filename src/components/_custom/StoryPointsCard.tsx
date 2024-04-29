@@ -1,5 +1,4 @@
-import { FactorsValues } from '@/core/types/StoryPoints';
-import { StoryPoints } from '@/core/usecases/StoryPoints';
+import { IStoryPoints } from '@core/domain/protocols/StryPoints';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -12,12 +11,11 @@ import {
 } from '@/components/ui/card';
 
 type PropTypes = {
-  factorsValues: FactorsValues;
+  storyPoints: IStoryPoints;
   onTryAgain: () => void;
 };
 
-const StoryPointsCard = ({ factorsValues, onTryAgain }: PropTypes) => {
-  const storyPoints = new StoryPoints(factorsValues);
+const StoryPointsCard = ({ storyPoints, onTryAgain }: PropTypes) => {
   const results = storyPoints.getResults();
 
   return (

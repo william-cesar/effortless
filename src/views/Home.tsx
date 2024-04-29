@@ -1,12 +1,16 @@
 import { useState } from 'react';
 
-import { FactorsResults } from '@/core/types/Factor';
-import { FactorsValues } from '@/core/types/StoryPoints';
+import { Factors } from '@core/domain/usecases/Factor';
+import { StoryPoints } from '@core/domain/usecases/StoryPoints';
+import { FactorsResults } from '@core/types/Factor';
+import { FactorsValues } from '@core/types/StoryPoints';
 
-import StoryPointsCard from '@/components/_custom/StoryPointsCard';
 import FactorCard from '@components/_custom/FactorCard';
 import GetResults from '@components/_custom/GetResults';
 import Introduction from '@components/_custom/Introduction';
+import StoryPointsCard from '@components/_custom/StoryPointsCard';
+
+const factors = new Factors();
 
 const Home = () => {
   const [factorsResults, setFactorsResults] = useState<FactorsResults | null>();
@@ -45,10 +49,13 @@ const Home = () => {
     <div className='flex flex-col gap-8'>
       <Introduction />
       {!showStoryPoints ? (
-        <FactorCard onFactorChange={(evt) => handleGetResults(evt)} />
+        <FactorCard
+          onFactorChange={(evt) => handleGetResults(evt)}
+          factors={factors}
+        />
       ) : (
         <StoryPointsCard
-          factorsValues={getFactorsValues()}
+          storyPoints={new StoryPoints(getFactorsValues())}
           onTryAgain={() => tryAgain()}
         />
       )}

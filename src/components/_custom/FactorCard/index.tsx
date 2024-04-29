@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react';
 
-import { FactorInfo, FactorsResults } from '@/core/types/Factor';
-import { Factors } from '@/core/usecases/Factor';
+import { IFactor } from '@core/domain/protocols/Factor';
+import { FactorInfo, FactorsResults } from '@core/types/Factor';
 import { StepEvent } from '@core/types/Step';
 
 import { Card } from '@components/ui/card';
@@ -10,13 +10,12 @@ import ActionBar from './ActionBar';
 import EstimativeSlider from './EstimativeSlider';
 import FactorDescription from './FactorDescription';
 
-const factors = new Factors();
-
 type PropTypes = {
   onFactorChange: (evt: FactorsResults) => void;
+  factors: IFactor;
 };
 
-const FactorCard = ({ onFactorChange }: PropTypes) => {
+const FactorCard = ({ onFactorChange, factors }: PropTypes) => {
   const [factorInfo, setFactorInfo] = useState<FactorInfo>(factors.factorInfo);
 
   const handleFactorChange = (event: StepEvent) => {

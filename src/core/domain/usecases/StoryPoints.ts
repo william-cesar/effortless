@@ -1,5 +1,6 @@
 import { STORY_POINTS_MESSAGES } from '@core/constants/storyPointsMessages';
 import { StoryPointsValues } from '@core/constants/storyPointsValues';
+import { IStoryPoints } from '@core/domain/protocols/StryPoints';
 import {
   FactorsValues,
   Message,
@@ -7,7 +8,7 @@ import {
   StoryPointsResult
 } from '@core/types/StoryPoints';
 
-export class StoryPoints {
+export class StoryPoints implements IStoryPoints {
   private readonly MEDIUM_LIMIT = 60;
   private readonly HIGH_LIMIT = 80;
   private readonly POINTS = {
@@ -19,16 +20,12 @@ export class StoryPoints {
 
   private storyPoints: number;
   private message: Message;
-  private factorsValues: FactorsValues;
+  public readonly factorsValues: FactorsValues;
 
-  constructor({ complexity, uncertainty, effort }: FactorsValues) {
+  constructor(factorsValues: FactorsValues) {
     this.storyPoints = 0;
     this.message = STORY_POINTS_MESSAGES.average;
-    this.factorsValues = {
-      complexity,
-      uncertainty,
-      effort
-    };
+    this.factorsValues = factorsValues;
   }
 
   private updateMessage(type: MessageType): void {

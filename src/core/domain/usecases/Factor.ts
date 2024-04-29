@@ -1,8 +1,9 @@
 import { FACTORS_INFO } from '@core/constants/factorsInfo';
+import { IFactor } from '@core/domain/protocols/Factor';
 import { FactorInfo, FactorsList } from '@core/types/Factor';
 import { StepEvent } from '@core/types/Step';
 
-export class Factors {
+export class Factors implements IFactor {
   private readonly MIN_STEP = 1;
   private readonly MAX_STEP = Object.keys(FACTORS_INFO).length;
 
