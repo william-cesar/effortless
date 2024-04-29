@@ -18,7 +18,6 @@ export type StoryPointsMessages = {
   mediumEffort: Message;
   highEffort: Message;
 
-  doNotProceed: Message;
   average: Message;
   allClear: Message;
 };
