@@ -11,16 +11,7 @@ export class Factors {
 
   constructor() {
     this.factorsInfo = FACTORS_INFO;
-    this.resetFactorCurrentValue();
-  }
-
-  private resetFactorCurrentValue(): void {
-    for (let i = this.MIN_STEP; i <= this.MAX_STEP; i++) {
-      this.factorsInfo[i] = {
-        ...this.factorsInfo[i],
-        currentValue: 50
-      };
-    }
+    this.resetFactors();
   }
 
   public get factorInfo(): FactorInfo {
@@ -29,6 +20,21 @@ export class Factors {
       hasPrev: this.currentStep > this.MIN_STEP,
       hasNext: this.currentStep < this.MAX_STEP
     };
+  }
+
+  public get factors(): FactorsList {
+    return this.factorsInfo;
+  }
+
+  public resetFactors(): void {
+    for (let i = this.MIN_STEP; i <= this.MAX_STEP; i++) {
+      this.factorsInfo[i] = {
+        ...this.factorsInfo[i],
+        currentValue: 50
+      };
+    }
+
+    this.currentStep = 1;
   }
 
   public handleStepChange(event: StepEvent): void {
