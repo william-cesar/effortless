@@ -87,10 +87,6 @@ export class StoryPoints {
 
   private calculateStoryPoints(): void {
     const { complexity, uncertainty, effort } = this.factorsValues;
-    console.log(
-      '🚀 ~ StoryPoints ~ calculateStoryPoints ~  { complexity, uncertainty, effort }:',
-      { complexity, uncertainty, effort }
-    );
 
     if (this.isHigh({ complexity, uncertainty, effort })) {
       this.storyPoints = StoryPointsValues.THIRTEEN;
