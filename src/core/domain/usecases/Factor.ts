@@ -7,7 +7,7 @@ export class Factors implements IFactor {
   private readonly MIN_STEP = 1;
   private readonly MAX_STEP = Object.keys(FACTORS_INFO).length;
 
-  private currentStep: number = 1;
+  private _currentStep: number = 1;
   private factorsInfo: FactorsList;
 
   constructor() {
@@ -17,14 +17,18 @@ export class Factors implements IFactor {
 
   public get factorInfo(): FactorInfo {
     return {
-      ...this.factorsInfo[this.currentStep],
-      hasPrev: this.currentStep > this.MIN_STEP,
-      hasNext: this.currentStep < this.MAX_STEP
+      ...this.factorsInfo[this._currentStep],
+      hasPrev: this._currentStep > this.MIN_STEP,
+      hasNext: this._currentStep < this.MAX_STEP
     };
   }
 
   public get factors(): FactorsList {
     return this.factorsInfo;
+  }
+
+  public get currentStep(): number {
+    return this._currentStep;
   }
 
   public resetFactors(): void {
@@ -35,21 +39,21 @@ export class Factors implements IFactor {
       };
     }
 
-    this.currentStep = 1;
+    this._currentStep = 1;
   }
 
   public handleStepChange(event: StepEvent): void {
     if (event === 'next') {
-      this.currentStep = ++this.currentStep;
+      this._currentStep = ++this._currentStep;
       return;
     }
 
-    this.currentStep = --this.currentStep;
+    this._currentStep = --this._currentStep;
   }
 
   public updateFactorInfoValue(value: number): void {
-    this.factorsInfo[this.currentStep] = {
-      ...this.factorsInfo[this.currentStep],
+    this.factorsInfo[this._currentStep] = {
+      ...this.factorsInfo[this._currentStep],
       currentValue: value
     };
   }
