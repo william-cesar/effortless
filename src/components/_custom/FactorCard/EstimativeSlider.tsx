@@ -41,7 +41,7 @@ const EstimativeSlider = (props: ContentProps) => {
               onValueChange={(value) => handleValueChange(value[0])}
             />
           </TooltipTrigger>
-          <TooltipContent>
+          <TooltipContent className='mb-1'>
             <p>{sliderValue}</p>
           </TooltipContent>
         </Tooltip>

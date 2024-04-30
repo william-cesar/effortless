@@ -1,3 +1,4 @@
+import { MessageTypeValue } from '@/core/types/StoryPoints';
 import { IStoryPoints } from '@core/domain/protocols/StryPoints';
 
 import { Button } from '@/components/ui/button';
@@ -18,16 +19,32 @@ type PropTypes = {
 const StoryPointsCard = ({ storyPoints, onTryAgain }: PropTypes) => {
   const results = storyPoints.getResults();
 
+  const textColorClass = (type: MessageTypeValue): string => {
+    const options = {
+      success: 'text-primary',
+      warning: 'text-warning',
+      error: 'text-destructive'
+    };
+
+    return options[type];
+  };
+
   return (
     <Card className='max-w-2xl mx-auto'>
       <CardHeader>
-        <CardTitle>{results.message.title}</CardTitle>
+        <CardTitle className={textColorClass(results.message.type)}>
+          {results.message.title}
+        </CardTitle>
         <CardDescription>
           <span className='my-2'>{results.message.description}</span>
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <p className='font-bold text-center text-2xl text-primary'>
+        <p
+          className={`font-bold text-center text-5xl ${textColorClass(
+            results.message.type
+          )}`}
+        >
           {results.storyPoints}
         </p>
       </CardContent>

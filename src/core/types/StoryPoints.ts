@@ -4,10 +4,12 @@ export type FactorsValues = {
   effort: number;
 };
 
+export type MessageTypeValue = 'success' | 'warning' | 'error';
+
 export type Message = {
   title: string;
   description: string;
-  type: 'success' | 'warning' | 'error';
+  type: MessageTypeValue;
 };
 
 export type StoryPointsMessages = {
