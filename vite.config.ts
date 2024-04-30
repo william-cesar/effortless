@@ -18,7 +18,13 @@ export default defineConfig({
   test: {
     coverage: {
       enabled: true,
-      include: ['src/core/**/*']
+      include: ['src/core/**/*'],
+      thresholds: {
+        statements: 100,
+        branches: 100,
+        functions: 100,
+        lines: 100
+      }
     }
   }
 });
