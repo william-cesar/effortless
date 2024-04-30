@@ -33,7 +33,12 @@ const ThemeSelect = () => {
   return (
     <>
       <Select value={theme} onValueChange={updateTheme}>
-        <SelectTrigger className='sm:w-28 w-fit'>
+        <SelectTrigger
+          id='themeSelect'
+          aria-description='A menu to select the theme'
+          aria-label='Select theme'
+          className='sm:w-28 w-fit'
+        >
           <div className='flex items-center gap-2 w-fit max-xsm:hidden'>
             {selectedTheme?.icon}
             {selectedTheme?.name}
@@ -45,7 +50,13 @@ const ThemeSelect = () => {
         <SelectContent>
           <SelectGroup>
             {THEMES.map((option) => (
-              <SelectItem key={option.value} value={option.value}>
+              <SelectItem
+                id={`theme-${option.value}`}
+                aria-description={`Theme option: ${option.name}`}
+                aria-selected={option.value === theme}
+                key={option.value}
+                value={option.value}
+              >
                 <span className='flex items-center gap-2'>
                   {option.icon}
                   {option.name}

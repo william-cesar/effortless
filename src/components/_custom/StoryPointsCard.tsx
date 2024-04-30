@@ -49,7 +49,15 @@ const StoryPointsCard = ({ storyPoints, onTryAgain }: PropTypes) => {
         </p>
       </CardContent>
       <CardFooter>
-        <Button className='w-full' variant='outline' onClick={onTryAgain}>
+        <Button
+          id='tryAgain'
+          aria-pressed='false'
+          aria-description='A button to try again'
+          type='button'
+          className='w-full'
+          variant='outline'
+          onClick={onTryAgain}
+        >
           Try Again
         </Button>
       </CardFooter>

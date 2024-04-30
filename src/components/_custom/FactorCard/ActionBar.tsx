@@ -14,6 +14,10 @@ const ActionBar = (props: ActionBarProps) => {
     <CardFooter className='flex gap-4 sm:justify-end max-sm:flex-col'>
       {props.hasPrevious ? (
         <Button
+          id='nextStep'
+          aria-pressed='false'
+          aria-description='A button to go to the previous step'
+          type='button'
           className='max-sm:w-full'
           variant='outline'
           onClick={() => props.onEvent('prev')}
@@ -22,7 +26,14 @@ const ActionBar = (props: ActionBarProps) => {
         </Button>
       ) : null}
       {props.hasNext ? (
-        <Button className='max-sm:w-full' onClick={() => props.onEvent('next')}>
+        <Button
+          id='nextStep'
+          aria-pressed='false'
+          aria-description='A button to go to the next step'
+          type='button'
+          className='max-sm:w-full'
+          onClick={() => props.onEvent('next')}
+        >
           Next
         </Button>
       ) : null}

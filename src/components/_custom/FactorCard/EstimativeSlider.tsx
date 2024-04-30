@@ -34,11 +34,18 @@ const EstimativeSlider = (props: ContentProps) => {
         <Tooltip open>
           <TooltipTrigger>
             <Slider
+              id='estimativeSlider'
               value={[sliderValue]}
               min={0}
               max={100}
               step={10}
               onValueChange={(value) => handleValueChange(value[0])}
+              aria-valuemin={0}
+              aria-valuemax={100}
+              aria-valuenow={sliderValue}
+              aria-description='Estimative slider to set the estimative value'
+              aria-label='Estimative slider'
+              role='slider'
             />
           </TooltipTrigger>
           <TooltipContent className='mb-1'>
