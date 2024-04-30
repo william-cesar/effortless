@@ -17,7 +17,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: https://william-cesar.github.io/effortless
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
