@@ -1,3 +1,6 @@
+import { useState } from 'react';
+
+import { useTheme } from '@components/providers/ThemeProvider';
 import {
   Select,
   SelectContent,
@@ -6,7 +9,6 @@ import {
   SelectTrigger
 } from '@components/ui/select';
 import { GearIcon, MoonIcon, SunIcon } from '@radix-ui/react-icons';
-import { useState } from 'react';
 
 const THEMES = [
   { name: 'Light', value: 'light', icon: <SunIcon /> },
@@ -14,13 +16,23 @@ const THEMES = [
   { name: 'System', value: 'system', icon: <GearIcon /> }
 ];
 
+type Theme = 'light' | 'dark' | 'system';
+
+const storedTheme: string = localStorage.getItem('vite-ui-theme') || 'dark';
+
 const ThemeSelect = () => {
-  const [theme, setTheme] = useState(THEMES[0].value);
+  const [theme, setTheme] = useState(storedTheme);
   const selectedTheme = THEMES.find((t) => t.value === theme);
 
+  const { setTheme: setGlobalTheme } = useTheme();
+
+  const updateTheme = (newTheme: Theme) => {
+    setGlobalTheme(newTheme);
+    setTheme(() => newTheme);
+  };
   return (
     <>
-      <Select value={theme} onValueChange={setTheme}>
+      <Select value={theme} onValueChange={updateTheme}>
         <SelectTrigger className='sm:w-28 w-fit'>
           <div className='flex items-center gap-2 w-fit max-xsm:hidden'>
             {selectedTheme?.icon}
