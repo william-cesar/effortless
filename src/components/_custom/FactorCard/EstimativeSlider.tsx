@@ -46,17 +46,32 @@ const EstimativeSlider = (props: ContentProps) => {
               aria-description='Estimative slider to set the estimative value'
               aria-label='Estimative slider'
               role='slider'
+              data-testid='estimative-slider'
             />
           </TooltipTrigger>
-          <TooltipContent className='mb-1'>
+          <TooltipContent
+            className='mb-1'
+            data-testid='estimative-slider-tooltip'
+            aria-valuenow={sliderValue}
+          >
             <p>{sliderValue}</p>
           </TooltipContent>
         </Tooltip>
       </TooltipProvider>
 
       <div className='flex justify-between items-center text-center text-sm text-muted-foreground'>
-        <span className='break-words max-w-24'>{props.upperEndLabel}</span>
-        <span className='break-words max-w-24'>{props.lowerEndLabel}</span>
+        <span
+          className='break-words max-w-24'
+          data-testid='estimative-slider-lower-end-label'
+        >
+          {props.upperEndLabel}
+        </span>
+        <span
+          className='break-words max-w-24'
+          data-testid='estimative-slider-upper-end-label'
+        >
+          {props.lowerEndLabel}
+        </span>
       </div>
     </CardContent>
   );

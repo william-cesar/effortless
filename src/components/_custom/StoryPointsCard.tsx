@@ -30,17 +30,21 @@ const StoryPointsCard = ({ storyPoints, onTryAgain }: PropTypes) => {
   };
 
   return (
-    <Card className='max-w-2xl mx-auto'>
-      <CardHeader>
-        <CardTitle className={textColorClass(results.message.type)}>
+    <Card className='max-w-2xl mx-auto' data-testid='story-points-card'>
+      <CardHeader data-testid='story-points-card-header'>
+        <CardTitle
+          className={textColorClass(results.message.type)}
+          data-testid='story-points-card-title'
+        >
           {results.message.title}
         </CardTitle>
-        <CardDescription>
+        <CardDescription data-testid='story-points-card-description'>
           <span className='my-2'>{results.message.description}</span>
         </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent data-testid='story-points-card-content'>
         <p
+          data-testid='story-points-card-text'
           className={`font-bold text-center text-5xl ${textColorClass(
             results.message.type
           )}`}
@@ -48,7 +52,7 @@ const StoryPointsCard = ({ storyPoints, onTryAgain }: PropTypes) => {
           {results.storyPoints}
         </p>
       </CardContent>
-      <CardFooter>
+      <CardFooter data-testid='story-points-card-footer'>
         <Button
           id='tryAgain'
           aria-pressed='false'
@@ -56,6 +60,7 @@ const StoryPointsCard = ({ storyPoints, onTryAgain }: PropTypes) => {
           type='button'
           className='w-full'
           variant='outline'
+          data-testid='story-points-card-try-again-btn'
           onClick={onTryAgain}
         >
           Try Again

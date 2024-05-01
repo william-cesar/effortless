@@ -20,6 +20,7 @@ const ActionBar = (props: ActionBarProps) => {
           type='button'
           className='max-sm:w-full'
           variant='outline'
+          data-testid='action-bar-prev-btn'
           onClick={() => props.onEvent('prev')}
         >
           Previous
@@ -31,6 +32,7 @@ const ActionBar = (props: ActionBarProps) => {
           aria-pressed='false'
           aria-description='A button to go to the next step'
           type='button'
+          data-testid='action-bar-next-btn'
           className='max-sm:w-full'
           onClick={() => props.onEvent('next')}
         >

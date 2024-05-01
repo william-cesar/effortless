@@ -31,42 +31,51 @@ const ThemeSelect = () => {
     setTheme(() => newTheme);
   };
   return (
-    <>
-      <Select value={theme} onValueChange={updateTheme}>
-        <SelectTrigger
-          id='themeSelect'
-          aria-description='A menu to select the theme'
-          aria-label='Select theme'
-          className='sm:w-28 w-fit'
+    <Select value={theme} onValueChange={updateTheme}>
+      <SelectTrigger
+        id='themeSelect'
+        aria-description='A menu to select the theme'
+        aria-label='Select theme'
+        className='sm:w-28 w-fit'
+        data-testid='theme-select'
+      >
+        <div
+          className='flex items-center gap-2 w-fit max-xsm:hidden'
+          data-testid='theme-select-selected'
         >
-          <div className='flex items-center gap-2 w-fit max-xsm:hidden'>
-            {selectedTheme?.icon}
-            {selectedTheme?.name}
-          </div>
-          <div className='flex items-center gap-2 w-fit xsm:hidden'>
-            {selectedTheme?.icon}
-          </div>
-        </SelectTrigger>
-        <SelectContent>
-          <SelectGroup>
-            {THEMES.map((option) => (
-              <SelectItem
-                id={`theme-${option.value}`}
-                aria-description={`Theme option: ${option.name}`}
-                aria-selected={option.value === theme}
-                key={option.value}
-                value={option.value}
+          {selectedTheme?.icon}
+          {selectedTheme?.name}
+        </div>
+        <div
+          className='flex items-center gap-2 w-fit xsm:hidden'
+          data-testid='theme-select-selected'
+        >
+          {selectedTheme?.icon}
+        </div>
+      </SelectTrigger>
+      <SelectContent>
+        <SelectGroup>
+          {THEMES.map((option) => (
+            <SelectItem
+              id={`theme-${option.value}`}
+              aria-description={`Theme option: ${option.name}`}
+              aria-selected={option.value === theme}
+              key={option.value}
+              value={option.value}
+              data-testid={`theme-select-option-${option.value}`}
+            >
+              <span
+                className='flex items-center gap-2'
+                data-testid='theme-select-item-text'
               >
-                <span className='flex items-center gap-2'>
-                  {option.icon}
-                  {option.name}
-                </span>
-              </SelectItem>
-            ))}
-          </SelectGroup>
-        </SelectContent>
-      </Select>
-    </>
+                {option.icon}
+                {option.name}
+              </span>
+            </SelectItem>
+          ))}
+        </SelectGroup>
+      </SelectContent>
+    </Select>
   );
 };
 

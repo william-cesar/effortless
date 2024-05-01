@@ -12,6 +12,7 @@ const GetResults = ({ showResults, onGetResults }: PropsTypes) => {
       aria-pressed='false'
       aria-description='A button to get the results'
       type='button'
+      data-testid='get-results-btn'
       className={showResults ? 'w-full' : 'hidden'}
       onClick={onGetResults}
     >

@@ -46,15 +46,20 @@ const FactorCard = ({ onFactorChange, factors }: PropTypes) => {
   };
 
   return (
-    <Card className='max-w-2xl mx-auto'>
-      <FactorDescription factorInfo={factorInfo} />
+    <Card className='max-w-2xl mx-auto' data-testid='factor-card'>
+      <FactorDescription
+        factorInfo={factorInfo}
+        data-testid='factor-card-description'
+      />
       <EstimativeSlider
+        data-testid='factor-card-estimative-slider'
         currentValue={factorInfo.currentValue!}
         lowerEndLabel={factorInfo.lowerEndLabel!}
         upperEndLabel={factorInfo.upperEndLabel!}
         onEvent={(evt) => handleValueChange(evt)}
       />
       <ActionBar
+        data-testid='factor-card-action-bar'
         hasNext={factorInfo.hasNext!}
         hasPrevious={factorInfo.hasPrev!}
         onEvent={(evt) => handleFactorChange(evt)}
